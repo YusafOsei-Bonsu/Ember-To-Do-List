@@ -3,6 +3,14 @@
 module.exports = function(environment) {
   let ENV = {
     modulePrefix: 'to-do-list',
+    firebase: {
+      apiKey: "AIzaSyDJSfUHNVcTcp_7wNZaAz5zcjdtcdVoK_k",
+      authDomain: "to-do-list-4d2f5.firebaseapp.com",
+      databaseURL: "https://to-do-list-4d2f5.firebaseio.com",
+      projectId: "to-do-list-4d2f5",
+      storageBucket: "to-do-list-4d2f5.appspot.com",
+      messagingSenderId: "481850864819"
+    },
     environment,
     rootURL: '/',
     locationType: 'auto',
