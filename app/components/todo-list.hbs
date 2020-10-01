@@ -1,0 +1,6 @@
+{{#each @list as |todo|}}
+    <div class="well">
+        <h4>{{todo.title}} <span class="label label-primary pull-right">{{moment-from-now todo.date}}</span></h4>
+        <p>{{todo.body}}</p>
+    </div>
+{{/each}}

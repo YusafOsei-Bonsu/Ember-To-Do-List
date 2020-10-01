@@ -17,20 +17,10 @@
         </div>
         {{#if filter}}
             {{!-- Shows a filtered list of todos if text is present in filter textbox --}}
-            {{#each filteredTodos as |todo|}}
-                <div class="well">
-                    <h4>{{todo.title}} <span class="label label-primary pull-right">{{moment-from-now todo.date}}</span></h4>
-                    <p>{{todo.body}}</p>
-                </div>
-            {{/each}}
+            <TodoList @list={{filteredTodos}} />
         {{else}}
             {{!-- Shows a sorted list of todos if text isn't present in filter textbox --}}
-            {{#each sortedTodos as |todo|}}
-                <div class="well">
-                    <h4>{{todo.title}} <span class="label label-primary pull-right">{{moment-from-now todo.date}}</span></h4>
-                    <p>{{todo.body}}</p>
-                </div>
-            {{/each}}
+            <TodoList @list={{sortedTodos}} />
         {{/if}}
     </div>
 </div>
