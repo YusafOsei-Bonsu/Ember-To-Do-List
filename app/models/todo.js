@@ -4,5 +4,5 @@ export default class TodoModel extends Model {
     @attr('string') title;
     @attr('string') body;
     @attr('date') date;
-    @attr('string') created_at = new Date();
+    @attr('string') created_at;
 }
