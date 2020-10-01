@@ -2,6 +2,7 @@ import Controller from '@ember/controller';
 import { action } from '@ember/object';
 
 export default class TodosEditController extends Controller {
+    
     @action
     editTodo(id) {
         let self, title, body, date;
@@ -26,5 +27,21 @@ export default class TodosEditController extends Controller {
         .catch((err) => {
             console.error(err);
         });
+    }
+
+    @action
+    deleteTodo(id) {
+        let self = this, todo;
+
+        todo = this.store.peekRecord('todo', id);
+        
+        // Delete todo item
+        todo.deleteRecord();
+
+        // Delete todo from firebase
+        todo.save();
+        
+        // Go to todos to see that the todo has been deleted
+        self.transitionToRoute('todos');
     }
 }
