@@ -15,12 +15,6 @@
                 </form>
             </div>
         </div>
-        {{#if filter}}
-            {{!-- Shows a filtered list of todos if text is present in filter textbox --}}
-            <TodoList @list={{filteredTodos}} />
-        {{else}}
-            {{!-- Shows a sorted list of todos if text isn't present in filter textbox --}}
-            <TodoList @list={{sortedTodos}} />
-        {{/if}}
+        <TodoList @list={{ this.sortedTodos }} />
     </div>
 </div>
