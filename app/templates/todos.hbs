@@ -5,6 +5,12 @@
         {{outlet}}
     </div>
     <div class="col-md-8">
-
+        {{!-- Shows a sorted list of todos  --}}
+        {{#each sortedTodos as |todo|}}
+            <div class="well">
+                <h4>{{todo.title}} <span class="label label-primary pull-right">{{moment-from-now todo.date}}</span></h4>
+                <p>{{todo.body}}</p>
+            </div>
+        {{/each}}
     </div>
 </div>

@@ -1,4 +1,6 @@
-import Controller from '@ember/controller';
+import Ember from 'ember';
 
-export default class TodosController extends Controller {
-}
+export default Ember.Controller.extend ({
+    sortingKey: ['date'],
+    sortedTodos: Ember.computed.sort('model', 'sortingKey')
+});
