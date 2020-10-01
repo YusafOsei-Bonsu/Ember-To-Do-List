@@ -13,3 +13,7 @@ li.nav-item { margin-right: 10px; }
     margin-top: 10px;
     width: 100%;
 }
+
+button.btn-danger {
+    float: right;
+}
