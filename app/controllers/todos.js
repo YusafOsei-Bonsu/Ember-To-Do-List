@@ -1,6 +1,16 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend ({
-    sortingKey: ['date'],
-    sortedTodos: Ember.computed.sort('model', 'sortingKey')
+    filter: '',
+    filteredTodos: function() {
+        let filter = this.get('filter');
+        let rx = new RegExp(filter, 'gi');
+        let todos = this.model;
+
+        return todos.filter(function(todo) {
+            return todo.get('title').match(rx) || todo.get('body').match(rx)
+        });
+    }.property('arrangedContent', 'filter'),
+    key: ['date'],
+    sortedTodos: Ember.computed.sort('model', 'key')
 });
