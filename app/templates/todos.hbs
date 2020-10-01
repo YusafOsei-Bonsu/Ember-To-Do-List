@@ -5,12 +5,32 @@
         {{outlet}}
     </div>
     <div class="col-md-8">
-        {{!-- Shows a sorted list of todos  --}}
-        {{#each sortedTodos as |todo|}}
-            <div class="well">
-                <h4>{{todo.title}} <span class="label label-primary pull-right">{{moment-from-now todo.date}}</span></h4>
-                <p>{{todo.body}}</p>
+        <div class="row">
+            <div class="col-md-12">
+                <form class="form-inline">
+                    <div class="form-group">
+                        {{input type="text" class="form-control" value=filter id="search" placeholder="Search Todos..."}}
+                    </div>
+                    <button type="submit" class="btn btn-default">Search</button>
+                </form>
             </div>
-        {{/each}}
+        </div>
+        {{#if filter}}
+            {{!-- Shows a filtered list of todos if text is present in filter textbox --}}
+            {{#each filteredTodos as |todo|}}
+                <div class="well">
+                    <h4>{{todo.title}} <span class="label label-primary pull-right">{{moment-from-now todo.date}}</span></h4>
+                    <p>{{todo.body}}</p>
+                </div>
+            {{/each}}
+        {{else}}
+            {{!-- Shows a sorted list of todos if text isn't present in filter textbox --}}
+            {{#each sortedTodos as |todo|}}
+                <div class="well">
+                    <h4>{{todo.title}} <span class="label label-primary pull-right">{{moment-from-now todo.date}}</span></h4>
+                    <p>{{todo.body}}</p>
+                </div>
+            {{/each}}
+        {{/if}}
     </div>
 </div>
