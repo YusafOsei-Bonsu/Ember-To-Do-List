@@ -1,7 +1,12 @@
 # to-do-list
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+This mini-project focuses on the development of a to-do list that's built using Ember.js.
+
+![A list of todos](./public/images/UI.PNG "The application's UI showing a list of todos")
+
+## Tech Stack
+
+* Ember (including HTML/CSS & JavaScript) 
 
 ## Prerequisites
 
