@@ -1,4 +1,5 @@
 import Controller from '@ember/controller';
+
 export default class TodosController extends Controller {
     // Show a list of todos
     get showTodos() {
