@@ -1,27 +1,12 @@
 import Controller from '@ember/controller';
-
 export default class TodosController extends Controller {
-
-    // Sorting the todos by date
-    get sortedTodos() {
-        const sortedTodos = this.model.sortBy('date');
-        return sortedTodos;
+    // Show a list of todos
+    get showTodos() {
+        const filter = this.get('filter');
+        const rx = new RegExp(filter, 'gi');
+        // Sort the list of todos by date
+        const todos = this.model.sortBy('date');
+        // Show a subset of todos if filter text is being entered
+        return todos.filter((todo) => todo.get('title').match(rx) || todo.get('body').match(rx));
     }
 }
-
-// import Ember from 'ember';
-
-// export default Ember.Controller.extend ({
-//     filter: '',
-//     filteredTodos: function() {
-//         let filter = this.get('filter');
-//         let rx = new RegExp(filter, 'gi');
-//         let todos = this.model;
-
-//         return todos.filter(function(todo) {
-//             return todo.get('title').match(rx) || todo.get('body').match(rx)
-//         });
-//     }.property('arrangedContent', 'filter'),
-//     key: ['date'],
-//     sortedTodos: Ember.computed.sort('model', 'key')
-// });
